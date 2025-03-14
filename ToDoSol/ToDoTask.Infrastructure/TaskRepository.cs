@@ -10,7 +10,7 @@ public class TaskRepository
     
     public void Add(Domain.ToDoTask task) => _tasks.Add(task);
 
-    public void Put(Domain.ToDoTask task)
+    public bool Put(Domain.ToDoTask task)
     {
         var existingTask = _tasks.FirstOrDefault(t => t.Id == task.Id);
 
@@ -19,10 +19,23 @@ public class TaskRepository
             existingTask.Title = task.Title;
             existingTask.Description = task.Description;
             existingTask.IsCompleted = task.IsCompleted;
+
+            return true;
         }
-        
+
+        return false;
     }
     
-    public void Remove(Domain.ToDoTask task) => _tasks.Remove(task);
-    
+    public bool Remove(int id)
+    {
+        var existingTask = _tasks.FirstOrDefault(t => t.Id == id);
+
+        if (existingTask != null)
+        {
+            _tasks.Remove(existingTask);
+            return true;
+        }
+
+        return false;
+    }
 }
