@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoTask.Api", "ToDoTask.Api\ToDoTask.Api.csproj", "{BC5EC986-F704-4055-AF88-37E12D69704B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoTask.Domain", "ToDoTask.Domain\ToDoTask.Domain.csproj", "{834C3BD2-6B1D-474D-A427-05CA372EFAE2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoTask.Infrastructure", "ToDoTask.Infrastructure\ToDoTask.Infrastructure.csproj", "{7DE4C88A-EA20-4BE9-9A86-AAEB34FFCCFC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,13 @@ Global
 		{BC5EC986-F704-4055-AF88-37E12D69704B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC5EC986-F704-4055-AF88-37E12D69704B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC5EC986-F704-4055-AF88-37E12D69704B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{834C3BD2-6B1D-474D-A427-05CA372EFAE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{834C3BD2-6B1D-474D-A427-05CA372EFAE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{834C3BD2-6B1D-474D-A427-05CA372EFAE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{834C3BD2-6B1D-474D-A427-05CA372EFAE2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DE4C88A-EA20-4BE9-9A86-AAEB34FFCCFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DE4C88A-EA20-4BE9-9A86-AAEB34FFCCFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DE4C88A-EA20-4BE9-9A86-AAEB34FFCCFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DE4C88A-EA20-4BE9-9A86-AAEB34FFCCFC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
