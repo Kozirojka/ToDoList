@@ -1,19 +1,34 @@
-using Microsoft.AspNetCore.Http.HttpResults;
-using ToDoTask.Infrastructure;
+using FluentValidation;
+using MediatR;
+using ToDoTask.Api.Extension;
+using ToDoTask.Application.Tasks.Query;
 
 namespace ToDoTask.Api.Endpoints.Tasks;
 
+/// <summary>
+/// This is first created endpoint using minimal api, mediatR
+/// Endpoint exist for purpose to fetch all tasks
+/// </summary>
 public class GetAllTasksEndpoint : IEndpoint
 {
     public void RegisterEndpoints(IEndpointRouteBuilder endpoints)
     {
-        endpoints.MapGet("api/tasks{id}", Handler);
+        endpoints.MapGet("api/tasks/{id}", Handler);
     }
 
-    private async Task<IResult> Handler(int id, CancellationToken cancellationToken)
+    private async Task<IResult> Handler(int id, 
+        IMediator mediator,
+        CancellationToken cancellationToken)
     {
-        
-        
-        return Results.Ok();   
+        var query = new GetAllTasksQuery();
+
+        var result = await mediator.Send(query, cancellationToken);
+
+        if (result.IsError)
+        {
+            return result.Errors.ToProblem();
+        }
+
+        return Results.Ok(result.Value);
     }
 }
