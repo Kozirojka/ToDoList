@@ -1,12 +1,13 @@
 using ErrorOr;
 using MediatR;
+using ToDoTask.Domain;
 using ToDoTask.Infrastructure;
 
 namespace ToDoTask.Application.Tasks.Command;
 
 
 
-public record UpdateTaskCommand(Domain.ToDoTask Task, int Id) : IRequest<ErrorOr<Success>>;
+public record UpdateTaskCommand(DoTask Task, int Id) : IRequest<ErrorOr<Success>>;
 
 public class UpdateTaskCommandHandler(TaskRepository repository) : IRequestHandler<UpdateTaskCommand, ErrorOr<Success>>
 {

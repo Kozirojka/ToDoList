@@ -1,8 +1,8 @@
 ﻿namespace ToDoTask.Domain;
 
-public class ToDoTask
+public class DoTask
 {
-    public int Id { get; private set; }
+    public int Id { get; set; }
     public string Title { get; set; }
     public string Description { get; set; }
     public bool IsCompleted { get; set; }

@@ -2,6 +2,7 @@ using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using ToDoTask.Application.Tasks.Command;
+using ToDoTask.Domain;
 
 namespace ToDoTask.Api.Endpoints.Tasks;
 
@@ -13,8 +14,8 @@ public class UpdateTaskEndpoint : IEndpoint
             .WithDescription("Updates a task");
     }
 
-    private async Task<IResult> Handler([FromBody] Domain.ToDoTask request, [FromRoute] int id,
-        CancellationToken cancellationToken, IMediator mediator, IValidator<Domain.ToDoTask> validator)
+    private async Task<IResult> Handler([FromBody] DoTask request, [FromRoute] int id,
+        CancellationToken cancellationToken, IMediator mediator, IValidator<DoTask> validator)
     {
         var validationResult = await validator.ValidateAsync(request, cancellationToken);
 

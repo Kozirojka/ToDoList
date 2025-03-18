@@ -1,14 +1,15 @@
 using ErrorOr;
 using MediatR;
+using ToDoTask.Domain;
 using ToDoTask.Infrastructure;
 
 namespace ToDoTask.Application.Tasks.Query;
 
-public record GetAllTasksQuery() : IRequest<ErrorOr<List<Domain.ToDoTask>>>;
+public record GetAllTasksQuery() : IRequest<ErrorOr<List<DoTask>>>;
 
-public class GetAllTasksQueryHandler(TaskRepository repository) : IRequestHandler<GetAllTasksQuery, ErrorOr<List<Domain.ToDoTask>>>
+public class GetAllTasksQueryHandler(TaskRepository repository) : IRequestHandler<GetAllTasksQuery, ErrorOr<List<DoTask>>>
 {
-    public async Task<ErrorOr<List<Domain.ToDoTask>>> Handle(GetAllTasksQuery request, CancellationToken cancellationToken)
+    public async Task<ErrorOr<List<DoTask>>> Handle(GetAllTasksQuery request, CancellationToken cancellationToken)
     {
         
         var listOfTasks = repository.GetAll().ToList();

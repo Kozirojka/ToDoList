@@ -8,7 +8,7 @@ namespace ToDoTask.Application.Tasks.Command;
 
 public record DeleteTaskByIdCommand(int UserDeleteId) : IRequest<ErrorOr<Success>>;
 
-public class DeleteTaskByIdCommandHandler(TaskRepository taskRepository) : IRequestHandler<DeleteTaskByIdCommand, ErrorOr<Success>>
+public class DeleteTaskByIdCommandHandler(ITaskRepository taskRepository) : IRequestHandler<DeleteTaskByIdCommand, ErrorOr<Success>>
 {
     public async Task<ErrorOr<Success>> Handle(DeleteTaskByIdCommand request, CancellationToken cancellationToken)
     {

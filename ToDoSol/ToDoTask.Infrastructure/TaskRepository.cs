@@ -1,22 +1,23 @@
 using ErrorOr;
+using ToDoTask.Domain;
 
 namespace ToDoTask.Infrastructure;
 
-public class TaskRepository
+public class TaskRepository : ITaskRepository
 {
-    private readonly List<Domain.ToDoTask> _tasks = new List<Domain.ToDoTask>();
+    private readonly List<DoTask> _tasks = new List<DoTask>();
     
-    public IEnumerable<Domain.ToDoTask> GetAll() => _tasks;    
+    public IEnumerable<DoTask> GetAll() => _tasks;    
     
-    public Domain.ToDoTask GetById(int id) => _tasks.FirstOrDefault(t => t.Id == id);
+    public DoTask GetById(int id) => _tasks.FirstOrDefault(t => t.Id == id);
     
-    public Success Add(Domain.ToDoTask task)
+    public Success Add(DoTask task)
     {
         _tasks.Add(task);
         return new Success();
     }
 
-    public bool Put(Domain.ToDoTask task, int id)
+    public bool Put(Domain.DoTask task, int id)
     {
         var existingTask = _tasks.FirstOrDefault(t => t.Id == task.Id);
 

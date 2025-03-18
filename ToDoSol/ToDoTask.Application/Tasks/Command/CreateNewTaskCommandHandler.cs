@@ -1,15 +1,16 @@
 using ErrorOr;
 using MediatR;
+using ToDoTask.Domain;
 using ToDoTask.Infrastructure;
 
 namespace ToDoTask.Application.Tasks.Command;
 
-public record CreateNewTaskCommand(Domain.ToDoTask task) : IRequest<ErrorOr<Success>>;
+public record CreateNewTaskCommand(DoTask task) : IRequest<ErrorOr<Success>>;
 public class CreateNewTaskCommandHandler : IRequestHandler<CreateNewTaskCommand, ErrorOr<Success>>
 {
-    private readonly TaskRepository _taskRepository;
+    private readonly ITaskRepository _taskRepository;
 
-    public CreateNewTaskCommandHandler(TaskRepository taskRepository)
+    public CreateNewTaskCommandHandler(ITaskRepository taskRepository)
     {
         _taskRepository = taskRepository;
     }

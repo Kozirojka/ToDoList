@@ -1,4 +1,3 @@
-using FluentValidation;
 using MediatR;
 using ToDoTask.Api.Extension;
 using ToDoTask.Application.Tasks.Query;

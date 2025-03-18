@@ -1,6 +1,7 @@
 using FluentValidation;
 using MediatR;
 using ToDoTask.Application.Tasks.Command;
+using ToDoTask.Domain;
 
 namespace ToDoTask.Api.Endpoints.Tasks;
 
@@ -12,8 +13,8 @@ public class CreateNewTaskEndpoint : IEndpoint
             .WithDescription("Creates a new task.");
     }
 
-    private async Task<IResult> Handler(Domain.ToDoTask request, IMediator mediator,
-        IValidator<Domain.ToDoTask> validator, CancellationToken cancellationToken)
+    public async Task<IResult> Handler(DoTask request, IMediator mediator,
+        IValidator<DoTask> validator, CancellationToken cancellationToken)
     {
         var validationResult = await validator.ValidateAsync(request, cancellationToken);
 
@@ -33,4 +34,6 @@ public class CreateNewTaskEndpoint : IEndpoint
 
         return Results.Ok(result.Value);
     }
+    
+    
 }

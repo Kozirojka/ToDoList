@@ -1,9 +1,10 @@
 using System.Data;
 using FluentValidation;
+using ToDoTask.Domain;
 
 namespace ToDoTask.Api.Endpoints.Tasks.Validators;
 
-public class TaskValidator : AbstractValidator<Domain.ToDoTask>
+public class TaskValidator : AbstractValidator<DoTask>
 {
     public TaskValidator()
     {
@@ -13,4 +14,3 @@ public class TaskValidator : AbstractValidator<Domain.ToDoTask>
         RuleFor(task => task.DueDate).GreaterThanOrEqualTo(DateTime.Today).WithMessage("Due date cannot be greater than today");
     }
 }
-

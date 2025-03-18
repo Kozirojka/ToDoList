@@ -10,8 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(GetAllTasksQueryHandler).Assembly));
-builder.Services.AddSingleton<TaskRepository>(); 
-builder.Services.AddScoped<IValidator<ToDoTask.Domain.ToDoTask>, TaskValidator>();
+builder.Services.AddSingleton<ITaskRepository, TaskRepository>(); 
+builder.Services.AddScoped<IValidator<ToDoTask.Domain.DoTask>, TaskValidator>();
 
 builder.Services.AddSwaggerGen(options =>
 {
