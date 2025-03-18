@@ -2,10 +2,11 @@ using ErrorOr;
 using MediatR;
 using ToDoTask.Domain;
 using ToDoTask.Infrastructure;
-
 namespace ToDoTask.Application.Tasks.Command;
 
 public record CreateNewTaskCommand(DoTask task) : IRequest<ErrorOr<Success>>;
+
+
 public class CreateNewTaskCommandHandler : IRequestHandler<CreateNewTaskCommand, ErrorOr<Success>>
 {
     private readonly ITaskRepository _taskRepository;

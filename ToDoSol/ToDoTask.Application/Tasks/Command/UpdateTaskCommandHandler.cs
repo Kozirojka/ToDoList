@@ -9,7 +9,7 @@ namespace ToDoTask.Application.Tasks.Command;
 
 public record UpdateTaskCommand(DoTask Task, int Id) : IRequest<ErrorOr<Success>>;
 
-public class UpdateTaskCommandHandler(TaskRepository repository) : IRequestHandler<UpdateTaskCommand, ErrorOr<Success>>
+public class UpdateTaskCommandHandler(ITaskRepository repository) : IRequestHandler<UpdateTaskCommand, ErrorOr<Success>>
 {
     public async Task<ErrorOr<Success>> Handle(UpdateTaskCommand request, CancellationToken cancellationToken)
     {

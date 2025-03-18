@@ -6,6 +6,10 @@ using ToDoTask.Domain;
 
 namespace ToDoTask.Api.Endpoints.Tasks;
 
+
+/// <summary>
+/// Endpoint of update already existing task
+/// </summary>
 public class UpdateTaskEndpoint : IEndpoint
 {
     public void RegisterEndpoints(IEndpointRouteBuilder endpoints)

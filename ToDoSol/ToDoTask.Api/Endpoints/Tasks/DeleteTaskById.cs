@@ -4,6 +4,9 @@ using ToDoTask.Application.Tasks.Command;
 
 namespace ToDoTask.Api.Endpoints.Tasks;
 
+/// <summary>
+/// Endpoint for deleting of todo task
+/// </summary>
 public class DeleteTaskById : IEndpoint
 {
     public void RegisterEndpoints(IEndpointRouteBuilder endpoints)

@@ -15,7 +15,7 @@ namespace TestingOfProject;
 public class CreateNewTaskCommandHandlerTests
 {
     [Fact]
-    public async Task Handle_ShouldReturnSuccess_WhenTaskIsAddedSuccessfully()
+    public async Task TesetForSuccesullyCreatedToDoTask()
     {
         var mockRepository = new Mock<ITaskRepository>();
         var task = new DoTask { Id = 1, Title = "Test", Description = "Test Description", IsCompleted = false };
@@ -26,10 +26,8 @@ public class CreateNewTaskCommandHandlerTests
         var command = new CreateNewTaskCommand(task);
         var cancellationToken = new CancellationToken();
 
-        // Act
         var result = await handler.Handle(command, cancellationToken);
 
-        // Assert
         Assert.False(result.IsError);
         Assert.IsType<Success>(result.Value);
     }

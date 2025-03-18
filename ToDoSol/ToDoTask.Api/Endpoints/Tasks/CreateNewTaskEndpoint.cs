@@ -5,6 +5,9 @@ using ToDoTask.Domain;
 
 namespace ToDoTask.Api.Endpoints.Tasks;
 
+/// <summary>
+/// Endpoint for creating todo task
+/// </summary>
 public class CreateNewTaskEndpoint : IEndpoint
 {
     public void RegisterEndpoints(IEndpointRouteBuilder endpoints)

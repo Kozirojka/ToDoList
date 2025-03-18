@@ -3,6 +3,10 @@ using ToDoTask.Application.Tasks.Query;
 
 namespace ToDoTask.Api.Endpoints.Tasks;
 
+
+/// <summary>
+/// Deleting of Task by id
+/// </summary>
 public class GetTaskByIdEndpoint : IEndpoint
 {
     public void RegisterEndpoints(IEndpointRouteBuilder endpoints)

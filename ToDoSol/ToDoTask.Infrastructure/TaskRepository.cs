@@ -3,6 +3,7 @@ using ToDoTask.Domain;
 
 namespace ToDoTask.Infrastructure;
 
+// TaskRepository that will implement job with database. 
 public class TaskRepository : ITaskRepository
 {
     private readonly List<DoTask> _tasks = new List<DoTask>();

@@ -1,8 +1,7 @@
-using System.Reflection;
 using FluentValidation;
-using Microsoft.OpenApi.Models;
 using ToDoTask.Api;
 using ToDoTask.Api.Endpoints.Tasks.Validators;
+using ToDoTask.Api.Extension;
 using ToDoTask.Application.Tasks.Query;
 using ToDoTask.Infrastructure;
 
@@ -13,15 +12,8 @@ builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(GetAl
 builder.Services.AddSingleton<ITaskRepository, TaskRepository>(); 
 builder.Services.AddScoped<IValidator<ToDoTask.Domain.DoTask>, TaskValidator>();
 
-builder.Services.AddSwaggerGen(options =>
-{
-    options.SwaggerDoc("v1", new OpenApiInfo
-    {
-        Title = "Product API",
-        Version = "v1",
-        Description = "API для управління продуктами",
-    });
-});
+builder.RegisterSwagger();
+
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
