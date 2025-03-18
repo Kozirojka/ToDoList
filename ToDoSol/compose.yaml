@@ -1,0 +1,11 @@
+﻿version: '3.8'
+
+services:
+  todotask.api:
+    image: todotask.api
+    build:
+      context: .
+      dockerfile: ToDoTask.Api/Dockerfile
+    ports:
+      - "7143:8080"
+      - "7144:8081"

@@ -8,7 +8,7 @@ namespace ToDoTask.Application.Tasks.Query;
 
 public record GetTaskByIdQuery(int Id) : IRequest<ErrorOr<DoTask?>>;
 
-public class GetTaskByIdQueryHandler(TaskRepository repository)
+public class GetTaskByIdQueryHandler(ITaskRepository repository)
     : IRequestHandler<GetTaskByIdQuery, ErrorOr<DoTask?>>
 {
     public async Task<ErrorOr<DoTask?>> Handle(GetTaskByIdQuery request, CancellationToken cancellationToken)

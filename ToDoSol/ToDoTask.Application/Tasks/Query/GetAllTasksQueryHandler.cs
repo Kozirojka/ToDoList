@@ -7,7 +7,7 @@ namespace ToDoTask.Application.Tasks.Query;
 
 public record GetAllTasksQuery() : IRequest<ErrorOr<List<DoTask>>>;
 
-public class GetAllTasksQueryHandler(TaskRepository repository) : IRequestHandler<GetAllTasksQuery, ErrorOr<List<DoTask>>>
+public class GetAllTasksQueryHandler(ITaskRepository repository) : IRequestHandler<GetAllTasksQuery, ErrorOr<List<DoTask>>>
 {
     public async Task<ErrorOr<List<DoTask>>> Handle(GetAllTasksQuery request, CancellationToken cancellationToken)
     {

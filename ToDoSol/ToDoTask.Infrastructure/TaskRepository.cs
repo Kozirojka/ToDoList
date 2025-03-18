@@ -14,11 +14,14 @@ public class TaskRepository : ITaskRepository
     
     public Success Add(DoTask task)
     {
+        //implement automatically increment of ID 
+        task.Id = _tasks.Count + 1;
+        
         _tasks.Add(task);
         return new Success();
     }
 
-    public bool Put(Domain.DoTask task, int id)
+    public bool Put(DoTask task, int id)
     {
         var existingTask = _tasks.FirstOrDefault(t => t.Id == task.Id);
 
