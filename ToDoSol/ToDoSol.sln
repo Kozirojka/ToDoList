@@ -8,6 +8,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoTask.Infrastructure", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoTask.Application", "ToDoTask.Application\ToDoTask.Application.csproj", "{EB0B7CD5-2F27-453C-87AB-7A001BA4FE89}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestingOfProject", "TestingOfProject\TestingOfProject.csproj", "{FEAB41A1-F9B1-4916-9C7A-254F8BF6DD3F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{591C2583-4A82-4A99-A548-08C4C39311AC}"
+	ProjectSection(SolutionItems) = preProject
+		compose.yaml = compose.yaml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +37,9 @@ Global
 		{EB0B7CD5-2F27-453C-87AB-7A001BA4FE89}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB0B7CD5-2F27-453C-87AB-7A001BA4FE89}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB0B7CD5-2F27-453C-87AB-7A001BA4FE89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEAB41A1-F9B1-4916-9C7A-254F8BF6DD3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEAB41A1-F9B1-4916-9C7A-254F8BF6DD3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEAB41A1-F9B1-4916-9C7A-254F8BF6DD3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEAB41A1-F9B1-4916-9C7A-254F8BF6DD3F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

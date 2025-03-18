@@ -1,16 +1,27 @@
+using ErrorOr;
+using ToDoTask.Domain;
+
 namespace ToDoTask.Infrastructure;
 
-public class TaskRepository
+// TaskRepository that will implement job with database. 
+public class TaskRepository : ITaskRepository
 {
-    private readonly List<Domain.ToDoTask> _tasks = new List<Domain.ToDoTask>();
+    private readonly List<DoTask> _tasks = new List<DoTask>();
     
-    public IEnumerable<Domain.ToDoTask> GetAll() => _tasks;    
+    public IEnumerable<DoTask> GetAll() => _tasks;    
     
-    public Domain.ToDoTask GetById(int id) => _tasks.FirstOrDefault(t => t.Id == id);
+    public DoTask GetById(int id) => _tasks.FirstOrDefault(t => t.Id == id);
     
-    public void Add(Domain.ToDoTask task) => _tasks.Add(task);
+    public Success Add(DoTask task)
+    {
+        //implement automatically increment of ID 
+        task.Id = _tasks.Count + 1;
+        
+        _tasks.Add(task);
+        return new Success();
+    }
 
-    public bool Put(Domain.ToDoTask task)
+    public bool Put(DoTask task, int id)
     {
         var existingTask = _tasks.FirstOrDefault(t => t.Id == task.Id);
 

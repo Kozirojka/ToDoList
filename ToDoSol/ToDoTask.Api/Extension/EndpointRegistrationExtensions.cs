@@ -1,7 +1,8 @@
-namespace ToDoTask.Api;
+namespace ToDoTask.Api.Extension;
 
 public static class EndpointRegistrationExtensions
 {
+    /// this function exist for automatically registration of endpoints
     public static void RegisterAllEndpoints(this IEndpointRouteBuilder app)
     {
         var endpointDefinitions = AppDomain

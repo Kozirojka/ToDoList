@@ -1,10 +1,11 @@
 ﻿namespace ToDoTask.Domain;
 
-public class ToDoTask
+//Our entity
+public class DoTask
 {
-    public int Id { get; private set; }
+    public int? Id { get; set; }
     public string Title { get; set; }
     public string Description { get; set; }
     public bool IsCompleted { get; set; }
-    public DateTime DueDate { get; private set; }
+    public DateTime? DueDate { get;  set; }
 }

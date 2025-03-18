@@ -1,0 +1,21 @@
+# This is a generated file. Not intended for manual editing.
+services:
+  todotask.api:
+    build:
+      context: "D:\\development\\ToDoList\\ToDoSol"
+      dockerfile: "ToDoTask.Api/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net9.0/ToDoTask.Api.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "todotask.api:dev"
+    ports: []
+    volumes:
+    - "D:\\development\\ToDoList\\ToDoSol\\ToDoTask.Api:/app:rw"
+    - "D:\\development\\ToDoList\\ToDoSol:/src:rw"
+    - "C:\\Users\\kosty\\.nuget\\packages:/home/app/.nuget/packages"
+    working_dir: "/app"
