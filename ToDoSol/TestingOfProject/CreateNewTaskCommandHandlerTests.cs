@@ -18,7 +18,7 @@ public class CreateNewTaskCommandHandlerTests
     public async Task TesetForSuccesullyCreatedToDoTask()
     {
         var mockRepository = new Mock<ITaskRepository>();
-        var task = new DoTask { Id = 1, Title = "Test", Description = "Test Description", IsCompleted = false };
+        var task = new DoTask { Id = Guid.NewGuid(), Title = "Test", Description = "Test Description", IsCompleted = false };
 
         mockRepository.Setup(repo => repo.Add(It.IsAny<DoTask>())).Returns(new Success());
 

@@ -15,7 +15,7 @@ public class GetTaskByIdEndpoint : IEndpoint
             .WithDisplayName("Get Task by Id");
     }
 
-    private async Task<IResult> Handler(IMediator mediator, int id)
+    private async Task<IResult> Handler(IMediator mediator, Guid id)
     {
         var query = new GetTaskByIdQuery(id);
 

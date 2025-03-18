@@ -6,7 +6,7 @@ namespace ToDoTask.Application.Tasks.Command;
 
 
 
-public record DeleteTaskByIdCommand(int UserDeleteId) : IRequest<ErrorOr<Success>>;
+public record DeleteTaskByIdCommand(Guid UserDeleteId) : IRequest<ErrorOr<Success>>;
 
 public class DeleteTaskByIdCommandHandler(ITaskRepository taskRepository) : IRequestHandler<DeleteTaskByIdCommand, ErrorOr<Success>>
 {

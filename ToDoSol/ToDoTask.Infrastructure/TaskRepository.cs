@@ -8,22 +8,22 @@ public class TaskRepository : ITaskRepository
 {
     private readonly List<DoTask> _tasks = new List<DoTask>();
     
-    public IEnumerable<DoTask> GetAll() => _tasks;    
-    
-    public DoTask GetById(int id) => _tasks.FirstOrDefault(t => t.Id == id);
+    public IEnumerable<DoTask> GetAll() => _tasks;
+
+    public DoTask GetById(Guid id) => _tasks.FirstOrDefault(t => t.Id == id);
     
     public Success Add(DoTask task)
     {
         //implement automatically increment of ID 
-        task.Id = _tasks.Count + 1;
+        task.Id = Guid.NewGuid();
         
         _tasks.Add(task);
         return new Success();
     }
 
-    public bool Put(DoTask task, int id)
+    public bool Put(DoTask task, Guid id)
     {
-        var existingTask = _tasks.FirstOrDefault(t => t.Id == task.Id);
+        var existingTask = _tasks.FirstOrDefault(t => t.Id == id);
 
         if (existingTask != null)
         {
@@ -37,7 +37,7 @@ public class TaskRepository : ITaskRepository
         return false;
     }
     
-    public bool Remove(int id)
+    public bool Remove(Guid id)
     {
         var existingTask = _tasks.FirstOrDefault(t => t.Id == id);
 

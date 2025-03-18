@@ -1,12 +1,13 @@
 using ErrorOr;
+using ToDoTask.Domain;
 
 namespace ToDoTask.Infrastructure;
 
 public interface ITaskRepository
 {
-    IEnumerable<Domain.DoTask> GetAll();
-    Domain.DoTask GetById(int id);
-    Success Add(Domain.DoTask task);
-    bool Put(Domain.DoTask task, int id);
-    bool Remove(int id);
+    IEnumerable<DoTask> GetAll();
+    DoTask GetById(Guid id);
+    Success Add(DoTask task);
+    bool Put(DoTask task, Guid userId);
+    bool Remove(Guid id);
 }

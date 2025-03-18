@@ -11,7 +11,7 @@ public class DeleteTaskByIdCommandHandlerTest
     public async Task Handle_ExistingTaskId_ShouldReturnSuccess()
     {
         var mockRepository = new Mock<ITaskRepository>();
-        int taskIdToDelete = 1;
+        var  taskIdToDelete = Guid.NewGuid();
             
         mockRepository.Setup(repo => repo.Remove(taskIdToDelete))
             .Returns(true);
@@ -30,7 +30,7 @@ public class DeleteTaskByIdCommandHandlerTest
     public async Task Handle_NonExistingTaskId_ShouldReturnError()
     {
         var mockRepository = new Mock<ITaskRepository>();
-        int nonExistingTaskId = 999;
+        var nonExistingTaskId = Guid.NewGuid();
             
         mockRepository.Setup(repo => repo.Remove(nonExistingTaskId))
             .Returns(false);

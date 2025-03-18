@@ -18,7 +18,7 @@ public class UpdateTaskEndpoint : IEndpoint
             .WithDescription("Updates a task");
     }
 
-    private async Task<IResult> Handler([FromBody] DoTask request, [FromRoute] int id,
+    private async Task<IResult> Handler([FromBody] DoTask request, [FromRoute] Guid id,
         CancellationToken cancellationToken, IMediator mediator, IValidator<DoTask> validator)
     {
         var validationResult = await validator.ValidateAsync(request, cancellationToken);

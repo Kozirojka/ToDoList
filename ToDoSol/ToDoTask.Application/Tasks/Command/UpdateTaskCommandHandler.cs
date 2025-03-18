@@ -7,7 +7,7 @@ namespace ToDoTask.Application.Tasks.Command;
 
 
 
-public record UpdateTaskCommand(DoTask Task, int Id) : IRequest<ErrorOr<Success>>;
+public record UpdateTaskCommand(DoTask Task, Guid Id) : IRequest<ErrorOr<Success>>;
 
 public class UpdateTaskCommandHandler(ITaskRepository repository) : IRequestHandler<UpdateTaskCommand, ErrorOr<Success>>
 {

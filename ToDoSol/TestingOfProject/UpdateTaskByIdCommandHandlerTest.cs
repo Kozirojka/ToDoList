@@ -11,7 +11,7 @@ public class UpdateTaskByIdCommandHandlerTest
     public async Task Handle_ExistingTask_ShouldReturnSuccess()
     {
         var mockRepository = new Mock<ITaskRepository>();
-        int taskId = 1;
+        var taskId = Guid.NewGuid();
             
         var taskToUpdate = new DoTask
         {

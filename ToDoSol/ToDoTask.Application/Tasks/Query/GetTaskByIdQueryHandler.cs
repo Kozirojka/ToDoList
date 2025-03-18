@@ -6,7 +6,7 @@ using ToDoTask.Infrastructure;
 namespace ToDoTask.Application.Tasks.Query;
 
 
-public record GetTaskByIdQuery(int Id) : IRequest<ErrorOr<DoTask?>>;
+public record GetTaskByIdQuery(Guid Id) : IRequest<ErrorOr<DoTask?>>;
 
 public class GetTaskByIdQueryHandler(ITaskRepository repository)
     : IRequestHandler<GetTaskByIdQuery, ErrorOr<DoTask?>>

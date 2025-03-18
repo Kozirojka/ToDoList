@@ -15,7 +15,7 @@ public class DeleteTaskById : IEndpoint
             .WithDescription("Deletes a task");
     }
 
-    private async Task<IResult> Handler([FromRoute] int id, IMediator mediator)
+    private async Task<IResult> Handler([FromRoute] Guid id, IMediator mediator)
     {
         var command = new DeleteTaskByIdCommand(id);
         var result = await mediator.Send(command);
