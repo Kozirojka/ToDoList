@@ -1,3 +1,5 @@
+using ErrorOr;
+
 namespace ToDoTask.Infrastructure;
 
 public class TaskRepository
@@ -8,9 +10,13 @@ public class TaskRepository
     
     public Domain.ToDoTask GetById(int id) => _tasks.FirstOrDefault(t => t.Id == id);
     
-    public void Add(Domain.ToDoTask task) => _tasks.Add(task);
+    public Success Add(Domain.ToDoTask task)
+    {
+        _tasks.Add(task);
+        return new Success();
+    }
 
-    public bool Put(Domain.ToDoTask task)
+    public bool Put(Domain.ToDoTask task, int id)
     {
         var existingTask = _tasks.FirstOrDefault(t => t.Id == task.Id);
 

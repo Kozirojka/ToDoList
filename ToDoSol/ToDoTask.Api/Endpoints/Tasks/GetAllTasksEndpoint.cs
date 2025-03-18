@@ -13,10 +13,11 @@ public class GetAllTasksEndpoint : IEndpoint
 {
     public void RegisterEndpoints(IEndpointRouteBuilder endpoints)
     {
-        endpoints.MapGet("api/tasks/{id}", Handler);
+        endpoints.MapGet("api/tasks", Handler).WithName("GetAllTask").WithTags("Tasks")
+            .WithDisplayName("Get all tasks");
     }
 
-    private async Task<IResult> Handler(int id, 
+    private async Task<IResult> Handler(
         IMediator mediator,
         CancellationToken cancellationToken)
     {

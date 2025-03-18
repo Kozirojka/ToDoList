@@ -1,6 +1,8 @@
 using System.Reflection;
+using FluentValidation;
 using Microsoft.OpenApi.Models;
 using ToDoTask.Api;
+using ToDoTask.Api.Endpoints.Tasks.Validators;
 using ToDoTask.Application.Tasks.Query;
 using ToDoTask.Infrastructure;
 
@@ -9,7 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(GetAllTasksQueryHandler).Assembly));
 builder.Services.AddSingleton<TaskRepository>(); 
-
+builder.Services.AddScoped<IValidator<ToDoTask.Domain.ToDoTask>, TaskValidator>();
 
 builder.Services.AddSwaggerGen(options =>
 {
